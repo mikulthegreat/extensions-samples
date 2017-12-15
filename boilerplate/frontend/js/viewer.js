@@ -44,27 +44,40 @@ function searchGame(gameName) {
 		url: '/info?search=' + encodeURIComponent(gameName),
 		accepts: 'application/json',
 	}).then(function(game) {
-		setTotalScore(parseInt(game.total_rating));
+        $('#gametitle').text(game.name);
+		setTotalScore(parseInt(game.total_rating || 0));
 		populateScreenshots(game);
 	});
 }
 
+var carousel = $('#carousel > .carousel-inner');
 function populateScreenshots(game) {
 	if (game.screenshots) {
-		var carousel = $('#carousel > .carousel-inner');
 		carousel.empty();
 		var active = 'active'
 		game.screenshots.forEach(function(screenshot) {
-			var item = $(['<div class="carousel-item' + active + '">',
-             '<img class="d-block img-fluid" src="' + screenshot.url + '">',
-        	 '</div>'].join('\n'));
+			var item = $(['<div class="carousel-item ' + active + '">',
+             '<img class="d-block img-fluid" src="' + screenshot.url + '"  alt="' + screenshot.cloudinary_id  + '"/>',
+        	 '</div>'].join(''));
 			carousel.append(item);
 			active = '';
 		});
-		carousel.carousel();
+        carousel.carousel({
+            interval: 5000,
+            ride: true
+        });
 	} else {
 
 	}
 }
+$('.carousel-control-next').click(() => {
+    carousel.carousel('next');
+    return false;
+})
 
-searchGame('PlayerUnknown')
+$('.carousel-control-prev').click(() => {
+    carousel.carousel('prev');
+    return false;
+})
+
+searchGame('Halo')
