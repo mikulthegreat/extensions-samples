@@ -13,3 +13,27 @@ or in the "license" file accompanying this file. This file is distributed on an 
   Set Javascript specific to the extension viewer view in this file.
 
 */
+setTotalScore('40');
+
+//Setting the score and the background
+function setTotalScore(score){
+
+    if(score < 0 || score > 100){
+        alert('Score is not valid. Please review your score.');
+    }else{
+        //Setting the background of score
+        if(score >= 75){
+            document.getElementById('total-score').style.backgroundColor = '#6c3';
+            document.getElementById('overall-comments').innerHTML = 'Excellent';
+        }else if (score >= 50){
+            document.getElementById('total-score').style.backgroundColor = '#fc3';
+            document.getElementById('overall-comments').innerHTML = 'Average';
+        }else{
+            document.getElementById('total-score').style.backgroundColor = '#f00';
+            document.getElementById('overall-comments').innerHTML = 'Poor';
+        }
+
+        //Setting the score
+        document.getElementById('total-score').innerHTML = score;
+    }
+}
