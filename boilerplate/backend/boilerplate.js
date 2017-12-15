@@ -10,6 +10,8 @@ or in the "license" file accompanying this file. This file is distributed on an 
 const express = require('express');
 const fs = require('fs');
 const https = require('https');
+const igdb = require('igdb-api-node').default;
+const client = igdb('b6432d67bc376f023e39fd26db454833');
 
 const app = express();
 
@@ -27,6 +29,23 @@ let options = {
    key  : fs.readFileSync('../certs/testing.key'),
    cert : fs.readFileSync('../certs/testing.crt')
 };
+
+app.get('/info', (req, res) => {
+
+	var info;
+
+	client.games({
+		search: req.query.search,
+	    fields: '*', // Return all fields
+    	limit: 1, // Limit to 5 results
+	}).then(response => {
+		res.json(response.body[0])
+	}).catch(error => {
+    	throw error;
+	});
+	//res.send('Hello World!')
+})
+
 
 const PORT = 8080;
 https.createServer(options, app).listen(PORT, function () {

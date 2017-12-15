@@ -13,7 +13,7 @@ or in the "license" file accompanying this file. This file is distributed on an 
   Set Javascript specific to the extension viewer view in this file.
 
 */
-setTotalScore('40');
+// setTotalScore('40');
 
 //Setting the score and the background
 function setTotalScore(score){
@@ -37,3 +37,34 @@ function setTotalScore(score){
         document.getElementById('total-score').innerHTML = score;
     }
 }
+
+
+function searchGame(gameName) {
+	return $.ajax({
+		url: '/info?search=' + encodeURIComponent(gameName),
+		accepts: 'application/json',
+	}).then(function(game) {
+		setTotalScore(parseInt(game.total_rating));
+		populateScreenshots(game);
+	});
+}
+
+function populateScreenshots(game) {
+	if (game.screenshots) {
+		var carousel = $('#carousel > .carousel-inner');
+		carousel.empty();
+		var active = 'active'
+		game.screenshots.forEach(function(screenshot) {
+			var item = $(['<div class="carousel-item' + active + '">',
+             '<img class="d-block img-fluid" src="' + screenshot.url + '">',
+        	 '</div>'].join('\n'));
+			carousel.append(item);
+			active = '';
+		});
+		carousel.carousel();
+	} else {
+
+	}
+}
+
+searchGame('PlayerUnknown')

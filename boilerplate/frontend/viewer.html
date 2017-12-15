@@ -21,13 +21,15 @@ or in the "license" file accompanying this file. This file is distributed on an 
         <link rel="stylesheet" href="css/common.css">
         <link rel="stylesheet" href="css/viewer.css">
         <title>Critic Reviews</title>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     </head>
 
-    <body class="text-center">
+    <body class="twitch">
 
-    <div class="twitch">
-
+    <div class="content text-center">
+<!--         <a id="reload" href="#">reload</a>
+ -->
         <h1 class="title"> Critic Reviews </h1>
 
         <div id="total-score-wrapper">
@@ -36,43 +38,27 @@ or in the "license" file accompanying this file. This file is distributed on an 
         <div class="overall-comments-wrapper">
             <p id="overall-comments"> Average </p>
         </div>
-
-        <div class="score-distribution-wrapper">
-            <ul class="score-distribution">
-                <li class="distribution-item">
-                    <span class="score-area"> We got this covered </span>
-                    <span class="score"> 90% </span>
-                </li>
-                <li class="distribution-item">
-                    <span class="score-area"> Impulse Gamer </span>
-                    <span class="score"> 84% </span>
-                </li>
-                <li class="distribution-item">
-                    <span class="score-area"> God is a Geek </span>
-                    <span class="score"> 80% </span>
-                </li>
-                <li class="distribution-item">
-                    <span class="score-area"> Gamingbolt</span>
-                    <span class="score"> 80% </span>
-                </li>
-                <li class="distribution-item">
-                    <span class="score-area"> Destructoid </span>
-                    <span class="score"> 50% </span>
-                </li>
-            </ul>
+        <br/>
+        <center>
+        <div id="carousel" class="carousel slide">
+          <div class="carousel-inner" role="listbox">   
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
         </div>
-
-        <div class="twitch-msg-wrapper">
-            <button id="twitch-message">
-                ...See More
-            </button>
-        </div>
+        </center>
     </div>
-        <a id="reload" href="#">reload</a>
-        <p> View More... </p>
-        <script src="js/script.js"></script>      
+<!--         <script src="js/script.js"></script>      
+ -->
         <script src="https://extension-files.twitch.tv/helper/v1/twitch-ext.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
         <script src="js/common.js"></script>
         <script src="js/viewer.js"></script>
         <script>
