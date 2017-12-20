@@ -20,11 +20,22 @@ or in the "license" file accompanying this file. This file is distributed on an 
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/common.css">
         <link rel="stylesheet" href="css/config.css">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.css" rel="stylesheet">
     </head>
     <body>
-        <p>Right now there is nothing you need to configure. The extension will detect the game you're playing and will show the critic score and reviews for the game.</p>
-        <p>In the future I'll add controls to customize the frontend of the extension </p>
+        <div class="content">
+                <form>
+                        <div class="form-group">
+                          <label for="gamename">Game Name</label>
+                          <input type="email" class="form-control" id="gamename" placeholder="Enter game name">
+                        </div>
+                        <button id="submit" type="submit" class="btn btn-primary">Update</button>
+                      </form>
+        </div>
         <script src="https://extension-files.twitch.tv/helper/v1/twitch-ext.min.js"></script>
+        <script src="https://unpkg.com/popper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/js/bootstrap.js"></script>
         <script src="js/common.js"></script>
         <script src="js/config.js"></script>
     </body>

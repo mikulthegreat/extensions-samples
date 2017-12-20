@@ -80,4 +80,4 @@ $('.carousel-control-prev').click(() => {
     return false;
 })
 
-searchGame('Halo')
+searchGame(localStorage.getItem('gamename') || 'PlayerUnknown Battlegrounds');

@@ -15,8 +15,14 @@ or in the "license" file accompanying this file. This file is distributed on an 
 */
 
 body {
-	font: 12px arial, sans-serif;
+  font: 12px arial, sans-serif;
 }
 div {
 	margin: 0px;
+}
+
+.content {
+  color: #fff;
+  background-color: #202020;
+  padding: 20px;
 }

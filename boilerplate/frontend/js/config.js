@@ -13,3 +13,9 @@ or in the "license" file accompanying this file. This file is distributed on an 
   Set Javascript specific to the extension configuration view in this file.
 
 */
+
+$('#submit').click(function() {
+  console.log('Setting name = ' + $('#gamename').val());
+  localStorage.setItem('gamename', $('#gamename').val())
+  return false;
+})
