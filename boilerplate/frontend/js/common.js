@@ -23,7 +23,7 @@ if(window.Twitch.ext) {
   window.Twitch.ext.onContext(function(context, contextFields) {
     console.log(context);
     console.log(contextFields);
-    searchGame(context.game);
+    // searchGame(context.game);
   });
   
   window.Twitch.ext.onError(function(err) {
